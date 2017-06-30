@@ -1,0 +1,15 @@
+dependencies:
+  pre:
+    - wget  https://releases.hashicorp.com/terraform/0.9.9/terraform_0.9.9_linux_amd64.zip
+    - unzip  terraform_0.9.9_linux_amd64.zip
+
+test:
+  override:
+    - ./terraform init -backend=true -backend-config="bucket=$BUCKET" -backend-config="key=terraform.tfstate" -backend-config="region=ap-southeast-1"
+    - ./terraform plan -out=terraform.plan
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - ./terraform apply terraform.plan
