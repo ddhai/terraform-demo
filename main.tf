@@ -1,6 +1,5 @@
-data "terraform_remote_state" "vpc" {
-  backend = "s3"
-  config {
+terraform {
+  backend "s3" {
     bucket = "tf-demo-co-well"
     key    = "terraform.tfstate"
     region = "us-west-2"
@@ -8,7 +7,6 @@ data "terraform_remote_state" "vpc" {
 }
 
 provider "aws" {
-  region = "us-west-2"
 }
 
 resource "aws_vpc" "minimal" {
