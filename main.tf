@@ -6,7 +6,9 @@ terraform {
   }
 }
 
-provider "aws" {}
+provider "aws" {
+  region = "us-west-2"
+}
 
 resource "aws_vpc" "minimal" {
 cidr_block = "${var.vpc_cidr}"
