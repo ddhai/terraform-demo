@@ -2,11 +2,12 @@ terraform {
   backend "s3" {
     bucket = "tf-demo-co-well"
     key    = "terraform.tfstate"
-    region = "us-west-2"
   }
 }
 
-provider "aws" {}
+provider "aws" {
+  region = "us-west-2"
+}
 
 resource "aws_vpc" "minimal" {
 cidr_block = "${var.vpc_cidr}"
