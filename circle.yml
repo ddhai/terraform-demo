@@ -5,7 +5,7 @@ dependencies:
 
 test:
   override:
-    - ./terraform init -backend=true -backend-config="bucket=$BUCKET" -backend-config="key=terraform.tfstate" -backend-config="region=ap-southeast-1"
+    - ./terraform init -force-copy -backend=true -backend-config="bucket=$BUCKET" -backend-config="key=terraform.tfstate" -backend-config="region=ap-southeast-1"
     - ./terraform plan -out=terraform.plan
 
 deployment:
