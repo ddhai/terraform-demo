@@ -2,7 +2,7 @@ data "terraform_remote_state" "vpc" {
   backend = "s3"
   config {
     bucket = "tf-demo-co-well"
-    key = "stage/vpc/terraform.tfstate"
+    key = "terraform.tfstate"
   }
 }
 
