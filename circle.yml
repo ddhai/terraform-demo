@@ -12,4 +12,5 @@ deployment:
   production:
     branch: master
     commands:
-      - ./terraform apply terraform.plan
+      #- ./terraform apply terraform.plan
+      - ./terraform state rm aws_vpc.minimal
